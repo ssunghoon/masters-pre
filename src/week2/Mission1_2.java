@@ -1,6 +1,7 @@
 package week2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 class Book {
     private String bookName;
@@ -20,7 +21,7 @@ class Book {
 
 public class Mission1_2 {
     public static void main(String[] args) {
-        ArrayList<Book> onmaLibrary = new ArrayList<Book>();
+        List<Book> onmaLibrary = new ArrayList<Book>();
 
         onmaLibrary.add(new Book("태백산맥", "조정래"));
         onmaLibrary.add(new Book("이기적유전자", "리처드 도킨즈"));
@@ -28,13 +29,11 @@ public class Mission1_2 {
         onmaLibrary.add(new Book("토지", "박경리"));
         onmaLibrary.add(new Book("대변동", "제레드 다이아몬드"));
 
-        ArrayList<Book> onmaLibraryCopy = onmaLibrary;
+        List<Book> onmaLibraryCopy = onmaLibrary;
 
-        ArrayList<Book> domaLibrary = new ArrayList<Book>();
+        List<Book> domaLibrary = new ArrayList<Book>();
 
-        for(int i=0; i<onmaLibrary.size(); i++) {
-            domaLibrary.add(onmaLibrary.get(i));
-        }
+        domaLibrary.addAll(onmaLibrary);
 
         onmaLibrary.set(2, new Book("그 많던 싱아는 누가 다 먹었을까", "박완서")); // (수정) 3번째 목록
 
