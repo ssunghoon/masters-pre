@@ -9,22 +9,6 @@ class Book implements Cloneable {
 
     public Book() {}
 
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public Book(String bookName, String author) {
         this.bookName = bookName;
         this.author = author;
@@ -57,7 +41,6 @@ public class Mission1_2 {
         for(Book book : onmaLibrary) {
             domaLibrary.add(book.clone());            
         }
-
 
         onmaLibrary.set(2, new Book("그 많던 싱아는 누가 다 먹었을까", "박완서")); // (수정) 3번째 목록
 
