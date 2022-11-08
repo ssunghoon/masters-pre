@@ -3,11 +3,27 @@ package week2;
 import java.util.ArrayList;
 import java.util.List;
 
-class Book {
+class Book implements Cloneable {
     private String bookName;
     private String author;
 
     public Book() {}
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public Book(String bookName, String author) {
         this.bookName = bookName;
@@ -17,10 +33,15 @@ class Book {
     public void showBookInfo() {
         System.out.println("[" + bookName + "| " + author + "]");
     }
+
+    @Override
+    protected Book clone() throws CloneNotSupportedException {
+        return (Book) super.clone();
+    }
 }
 
 public class Mission1_2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         List<Book> onmaLibrary = new ArrayList<Book>();
 
         onmaLibrary.add(new Book("태백산맥", "조정래"));
@@ -30,10 +51,13 @@ public class Mission1_2 {
         onmaLibrary.add(new Book("대변동", "제레드 다이아몬드"));
 
         List<Book> onmaLibraryCopy = onmaLibrary;
-
+        
+        // ArrayList 깊은 복사
         List<Book> domaLibrary = new ArrayList<Book>();
+        for(Book book : onmaLibrary) {
+            domaLibrary.add(book.clone());            
+        }
 
-        domaLibrary.addAll(onmaLibrary);
 
         onmaLibrary.set(2, new Book("그 많던 싱아는 누가 다 먹었을까", "박완서")); // (수정) 3번째 목록
 
