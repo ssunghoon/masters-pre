@@ -1,4 +1,4 @@
-package week2;
+package week2.mission1;
 
 import java.util.ArrayList;
 import java.util.List;
